@@ -22,4 +22,8 @@ def search_trainers():
     return jsonify({"message": "Trainer search results", "data": matched_trainers})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os  
+
+port = int(os.environ.get("PORT", 5000))  # Get PORT from environment variables
+app.run(host="0.0.0.0", port=port, debug=True)  # Bind to 0.0.0.0
+
